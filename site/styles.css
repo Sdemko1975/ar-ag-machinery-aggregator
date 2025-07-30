@@ -1,0 +1,16 @@
+:root { --max: 920px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #fafafa; color: #111; }
+header, .toolbar, main, footer { max-width: var(--max); margin: 0 auto; padding: 12px; }
+header { padding-top: 18px; }
+h1 { font-size: 1.6rem; margin: 0 0 4px; }
+.sub { color: #555; margin: 0 0 12px; }
+.toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.toolbar input, .toolbar select, .toolbar button { padding: 8px; font-size: 0.95rem; }
+.list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.card { background: white; border: 1px solid #eee; border-radius: 10px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.card h3 { margin: 6px 0 8px; font-size: 1.05rem; line-height: 1.2; }
+.teaser { margin: 0; color: #333; }
+.meta { display: flex; justify-content: space-between; gap: 8px; color: #666; font-size: 0.85rem; }
+.source { font-weight: 600; }
+footer { color: #666; padding: 18px 12px 28px; }

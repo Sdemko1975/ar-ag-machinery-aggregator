@@ -1,0 +1,14 @@
+{
+  "name": "ar-ag-machinery-aggregator",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "crawl": "node scripts/crawl.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "fast-xml-parser": "^4.4.0",
+    "got": "^13.0.0"
+  }
+}
