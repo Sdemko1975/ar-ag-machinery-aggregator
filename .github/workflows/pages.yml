@@ -5,13 +5,17 @@ on:
     branches: [ main ]
   workflow_dispatch:
   schedule:
-    - cron: '0 12 * * 1'
-    - cron: '0 12 * * 4'
+    - cron: '0 12 * * 1'   # Mon 12:00 UTC (09:00 Argentina)
+    - cron: '0 12 * * 4'   # Thu 12:00 UTC
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -23,17 +27,17 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run crawl
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deploy
+      - id: deployment
         uses: actions/deploy-pages@v4
-
-
